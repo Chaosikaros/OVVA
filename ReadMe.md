@@ -56,7 +56,7 @@ We introduce optotype-based standard images (OBSI) to reveal and highlight the k
 
 ![Image5](./attachments/ReadMe/media/image5.png)
 
-### OVVA Test with Keyboard
+### OVVA Test with Keyboard  (available demo: "OVVA.Windows.exe.zip" in release page)
 
 Scene: OVVA VR.unity
 
