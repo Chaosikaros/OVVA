@@ -1,7 +1,7 @@
 # Omnidirectional Virtual Visual Acuity (OVVA): 
 ### A User-centric Visual Clarity Metric for Virtual Reality Head-mounted Displays and Environments
 
-### [Video(To Be Updated)](https) | [Paper(To Be Updated)](https)
+### [Paper](https://ieeexplore.ieee.org/document/10458404) | [Video(To Be Updated)](https)
 
 ## Overview
 
@@ -17,7 +17,7 @@ Users' perceived image quality of virtual reality head-mounted displays (VR HMDs
 Our work has identified a gap in having a feasible metric that can measure the visual clarity of VR HMDs. To address this gap, we present an end-to-end and user-centric visual clarity metric, omnidirectional virtual visual acuity (OVVA), for VR HMDs. OVVA extends the physical visual acuity chart into a virtual format to measure the virtual visual acuity of an HMD's central focal area and its degradation in its noncentral area. OVVA provides a new perspective to measure visual clarity and can serve as an intuitive and accurate reference for VR applications sensitive to visual accuracy. Our results show that OVVA is a simple yet effective metric for comparing VR HMDs and environments.
 
 ## Key Features
-
+<img src="./attachments/ReadMe/media/image10.JPG" style="width:100%; height:auto;">
 <img src="./attachments/ReadMe/media/image2.png" style="width:80%; height:auto;">
 
 ## Installation & Set-up
@@ -101,6 +101,6 @@ We welcome community contributions to this repository.
 
 ## Citations(To Be Updated)
 
-Link to [Paper(To Be Updated)](https:)
+Link to [Paper](https://ieeexplore.ieee.org/document/10458404)
 
 Contact: chaosikaros@outlook.com
