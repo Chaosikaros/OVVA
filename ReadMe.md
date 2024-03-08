@@ -99,7 +99,19 @@ This scene is an example of batch processing for multiple raw OVVA data recordin
 
 We welcome community contributions to this repository.
 
-## Citations(To Be Updated)
+## Citations
+```bibtex
+@ARTICLE{10458404,
+  author={Wang, Jialin and Shi, Rongkai and Li, Xiaodong and Wei, Yushi and Liang, Hai-Ning},
+  journal={IEEE Transactions on Visualization and Computer Graphics}, 
+  title={Omnidirectional Virtual Visual Acuity: A User-centric Visual Clarity Metric for Virtual Reality Head-mounted Displays and Environments}, 
+  year={2024},
+  volume={},
+  number={},
+  pages={1-11},
+  keywords={Visualization;Measurement;Resists;Rendering (computer graphics);Optical imaging;Image resolution;Optical sensors;Virtual reality;Head-mounted displays;Measurements;Visual clarity;Passthrough;Render resolution;Frame rate},
+  doi={10.1109/TVCG.2024.3372127}}
+```
 
 Link to [Paper](https://ieeexplore.ieee.org/document/10458404)
 
