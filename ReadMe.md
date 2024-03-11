@@ -1,7 +1,9 @@
 # Omnidirectional Virtual Visual Acuity (OVVA): 
 ### A User-centric Visual Clarity Metric for Virtual Reality Head-mounted Displays and Environments
 
-### [Paper](https://ieeexplore.ieee.org/document/10458404) | [Video(To Be Updated)](https)
+### [Paper](https://ieeexplore.ieee.org/document/10458404) | [Youtube Video](https://www.youtube.com/watch?v=nSSgNcdocbo) | [B站视频](https://www.bilibili.com/video/BV1xi421d7rt/)
+
+### [Introduction of Visual Clarity in VR](https://chaosikaros.github.io/blog/OVVA_Video_EN/) | [VR视觉清晰度的介绍](https://chaosikaros.github.io/blog/OVVA_Video_CN/)
 
 ## Overview
 
