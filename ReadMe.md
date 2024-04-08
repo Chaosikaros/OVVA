@@ -55,7 +55,7 @@ Scene: OBSI VR.unity
 We introduce optotype-based standard images (OBSI) to reveal and highlight the key software factors that cause the non-uniform distribution of image quality in VR environments.
 
 <img src="./attachments/ReadMe/media/image4.png" style="width:50%; height:auto;">
-
+![Image11](./attachments/ReadMe/media/image11.png)
 ![Image5](./attachments/ReadMe/media/image5.png)
 
 ### OVVA Test with Keyboard  (available demo: "OVVA.Windows.exe.zip" in release page)
@@ -63,7 +63,9 @@ We introduce optotype-based standard images (OBSI) to reveal and highlight the k
 Scene: OVVA VR.unity
 
 This is a remake version of OVVA test used in experiment. It contains tips UI with buttons for in-app instruction.
-
+```
+Attention: This is a VR application based on OpenXR, it should be run as a PC VR application.
+```
 Input: 
 - Directional buttons = Arrow keys
 - Confirm button = Space
