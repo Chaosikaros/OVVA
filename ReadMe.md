@@ -93,13 +93,12 @@ This scene is an example of batch processing for multiple raw OVVA data recordin
 ## Future Work
 
 1. Improve the in-app instruction.
-2. Enhance the rendering quality of optotype.
-3. Boost performance of OBSI generator and OVVA heatmap generator.
-4. Develop an online database for collection of public OVVA data.
-5. Create a VR HMD name database for the filing system of OVVA database.
-6. Change the recording file format from CSV to JSON.
-7. Improve the OVVA test procedure by involving Bayesian methods to increase the level of fault tolerance.
-8. Add input device support of VR controller by Unity's XR Interaction Toolkit (XRI).
+2. Boost performance of OBSI generator and OVVA heatmap generator.
+3. Develop an online database for collection of public OVVA data.
+4. Create a VR HMD name database for the filing system of OVVA database.
+5. Change the recording file format from CSV to JSON.
+6. Improve the OVVA test procedure by involving Bayesian methods to increase the level of fault tolerance.
+7. Add input device support of VR controller by Unity's XR Interaction Toolkit (XRI).
 
 ## Contributions
 
