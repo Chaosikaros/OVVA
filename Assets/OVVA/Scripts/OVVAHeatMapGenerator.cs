@@ -50,10 +50,12 @@ namespace ChaosIkaros.OVVA
         public void UpdateDatasetInfo()
         {
             CentralVVASlider.value = float.Parse(TargetCentralVVA);
-            DatasetInfo.text = "LogMAR:" + TargetCentralVVA
-                                          + "\r\nHMD:" + TargetDevice
-                                          + "\r\nRenderResolution:" + TargetResolution
-                                          + "\r\nEye:" + TargetEye;
+            DatasetInfo.text = "LogMAR: " + TargetCentralVVA
+                                          + "\r\nHMD: " + TargetDevice
+                                          + "\r\nRenderResolution: " + TargetResolution
+                                          + "\r\nEye: " + TargetEye;
+            if (OVVATestController.Instance != null)
+                DatasetInfo.text += "\r\nStage2 Loop: " + OVVATestController.Instance.Stage2LoopCounter;
         }
 
         public void HeapMapPreprocessing(string targetDevice, string targetResolution, string targetEye,

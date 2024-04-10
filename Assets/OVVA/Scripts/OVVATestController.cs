@@ -9,6 +9,7 @@ namespace ChaosIkaros.OVVA
 {
     public class OVVATestController : MonoBehaviour
     {
+        public static OVVATestController Instance;
         public bool ShowDebugPanel = false;
         public GameObject DebugPanel;
         public InstructionManager InstructionManager;
@@ -29,12 +30,15 @@ namespace ChaosIkaros.OVVA
         public TMP_Text HMDInfo;
         public TMP_Dropdown ParticipantID;
         public TMP_Dropdown EyeCondition;
+        public TMP_Text Stage2LoopInfo;
         public string HMDName;
         public Vector2Int RenderResolution;
         public float LogMAR;
         public bool Stage1HasMistake = false;
+        public int Stage2LoopCounter = 0;
         private List<float> _accuracyList = new List<float> { };
         private int _repeatCounter = 0;
+        private int _repeatCounterStage2 = 0;
         private int _subTaskScore = 0;
         private float _currentDistance = 0f;
         private float _halfFOV = OVVAGenerator.HalfFOVStart;
@@ -54,6 +58,8 @@ namespace ChaosIkaros.OVVA
         // Start is called before the first frame update
         void Start()
         {
+            Instance = this;
+            SetStage2LoopCounter(0);
             DebugPanel.SetActive(ShowDebugPanel);
             List<string> options = new List<string> { };
             for (int i = 1; i < 65; i++)
@@ -82,6 +88,12 @@ namespace ChaosIkaros.OVVA
             HMDName = OVVAUtility.GetXRDeviceName();
             HMDInfo.text = "HMD: " + HMDName + "\r\nRender Resolution: " + RenderResolution.x + "x" +
                            RenderResolution.y;
+        }
+        
+        public void SetStage2LoopCounter(float value)
+        {
+            Stage2LoopCounter = (int)value;
+            Stage2LoopInfo.text = "Stage2 Loop: " + Stage2LoopCounter.ToString();
         }
 
         public IEnumerator EyeMaskTest()
@@ -140,6 +152,7 @@ namespace ChaosIkaros.OVVA
             _currentDistance = 0f;
             _halfFOV = OVVAGenerator.HalfFOVStart;
             _timer = 0;
+            _repeatCounterStage2 = 0;
             _lastDistanceA = _currentDistance;
             _lastDistanceB = OVVAGenerator.StartRadius;
             _lastDistanceC = 0;
@@ -189,9 +202,17 @@ namespace ChaosIkaros.OVVA
                 }
                 else
                 {
-                    _halfFOV += OVVAGenerator.HalfFOVInc;
+                    if (_halfFOV != OVVAGenerator.HalfFOVStart && _repeatCounterStage2 < Stage2LoopCounter)
+                    {
+                        _repeatCounterStage2++;
+                    }
+                    else
+                    {
+                        _repeatCounterStage2 = 0;
+                        _halfFOV += OVVAGenerator.HalfFOVInc;
+                    }
                     OVVAGenerator.UpdateCentralArea(_lastDistanceC, _halfFOV);
-                    if(_halfFOV > OVVAGenerator.HalfFOVStart + OVVAGenerator.HalfFOVInc)
+                    if(_repeatCounterStage2 == 0 && _halfFOV > OVVAGenerator.HalfFOVStart + OVVAGenerator.HalfFOVInc)
                         yield return StartCoroutine(InstructionManager.EndCheckForStage2());
                 }
             }
