@@ -72,6 +72,10 @@ Input:
 - Directional buttons = Arrow keys
 - Confirm button = Space
 
+Settings:
+- Eye: Select the eye condition for the OVVA test (e.g., 'Both' condition means no eye is blocked, 'L' means the right eye's view will be obscured by a black texture)
+- Stage2 Loop: Adjust the number of loops for stage 2. A higher loop number can help generate a more accurate heatmap.
+
 ### OVVA Analysis Example
 
 Scene: OVVA Analysis.unity
