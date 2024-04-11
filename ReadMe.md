@@ -90,6 +90,13 @@ This scene is an example of batch processing for multiple raw OVVA data recordin
   <img src="./attachments/ReadMe/media/image8.png" width="30%" />
 </p>
 
+### Optotypes Comparison
+
+Scene: Optotypes comparison.unity
+
+This scene is used to compare different rendering methods in Unity editor. Set the resolution to 1920*1080, change the scale to observe pixel-level details.
+The rotation angle of the optotypes can be changed in runtime by modifying the "rotation angle" on the inspector of "OptotypesComparison".
+
 ### Known issues
 
 1. In the first stage for CVVA measurement, if users clicked on wrong directional button for letter with recognizable orientation, they need to restart the task. The radial distance of the ring's center is adjusted using the bisection method in this stage. This is an approximation method used to find the roots of an equation by repeatedly dividing the interval. Correct answers increase the radial distance, while incorrect ones decrease it. Therefore, the first stage requires a 100% recognition rate to ensure the correct bisection method steps.

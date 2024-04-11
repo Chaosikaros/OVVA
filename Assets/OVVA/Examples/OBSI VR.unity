@@ -1578,7 +1578,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartRadius: 0.75
-  OptotypePrefab: {fileID: 5585832677126704306, guid: 84024b6437f64a242b82fc0b9b8a5a67, type: 3}
+  OptotypePrefab: {fileID: 5585832677126704306, guid: ac0dc4c0fa323014a98b80d9c79dc768, type: 3}
   CameraTransform: {fileID: 500494244}
 --- !u!1 &2028528301
 GameObject:

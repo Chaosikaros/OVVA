@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6559232989455387664}
   m_Layer: 0
-  m_Name: E
+  m_Name: E-TMP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
