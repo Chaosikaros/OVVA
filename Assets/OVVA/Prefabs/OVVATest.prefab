@@ -1147,12 +1147,12 @@ MonoBehaviour:
   HMDInfo: {fileID: 7833971540509388820}
   ParticipantID: {fileID: 10891323167579297}
   EyeCondition: {fileID: 10891323136414436}
-  Stage2LoopInfo: {fileID: 6054159832795819291}
+  Stage2RepetitionInfo: {fileID: 6054159832795819291}
   HMDName: 
   RenderResolution: {x: 0, y: 0}
   LogMAR: 0
   Stage1HasMistake: 0
-  Stage2LoopCounter: 0
+  Stage2RepetitionCounter: 0
 --- !u!114 &10891322436317628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3832,7 +3832,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Stage2 Loop: 0'
+  m_text: 'Stage2 Repetition: 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3859,8 +3859,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 32
+  m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3895,7 +3895,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -64.839516, w: 0}
+  m_margin: {x: 0, y: 0, z: -96.14132, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -4936,7 +4936,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 10891322436317630}
         m_TargetAssemblyTypeName: ChaosIkaros.OVVA.OVVATestController, Assembly-CSharp
-        m_MethodName: SetStage2LoopCounter
+        m_MethodName: SetStage2RepetitionCounter
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

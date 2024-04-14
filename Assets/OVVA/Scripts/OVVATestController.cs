@@ -30,12 +30,19 @@ namespace ChaosIkaros.OVVA
         public TMP_Text HMDInfo;
         public TMP_Dropdown ParticipantID;
         public TMP_Dropdown EyeCondition;
-        public TMP_Text Stage2LoopInfo;
+        public TMP_Text Stage2RepetitionInfo;
         public string HMDName;
         public Vector2Int RenderResolution;
         public float LogMAR;
         public bool Stage1HasMistake = false;
-        public int Stage2LoopCounter = 0;
+
+        /// <summary>
+        /// 0 means no repetition
+        /// </summary>
+        public int Stage2RepetitionCounter = 0;
+        
+        public List<Vector3> BisectionMethodRecorder = new List<Vector3> { };
+
         private List<float> _accuracyList = new List<float> { };
         private int _repeatCounter = 0;
         private int _repeatCounterStage2 = 0;
@@ -43,6 +50,7 @@ namespace ChaosIkaros.OVVA
         private float _currentDistance = 0f;
         private float _halfFOV = OVVAGenerator.HalfFOVStart;
         private float _timer = 0;
+        private Vector3 _distanceConfig = new Vector3(0, 0, 0);
         private float _lastDistanceA = 0f;
         private float _lastDistanceB = 0f;
         private float _lastDistanceC = 0;
@@ -59,7 +67,7 @@ namespace ChaosIkaros.OVVA
         void Start()
         {
             Instance = this;
-            SetStage2LoopCounter(0);
+            SetStage2RepetitionCounter(0);
             DebugPanel.SetActive(ShowDebugPanel);
             List<string> options = new List<string> { };
             for (int i = 1; i < 65; i++)
@@ -89,11 +97,11 @@ namespace ChaosIkaros.OVVA
             HMDInfo.text = "HMD: " + HMDName + "\r\nRender Resolution: " + RenderResolution.x + "x" +
                            RenderResolution.y;
         }
-        
-        public void SetStage2LoopCounter(float value)
+
+        public void SetStage2RepetitionCounter(float value)
         {
-            Stage2LoopCounter = (int)value;
-            Stage2LoopInfo.text = "Stage2 Loop: " + Stage2LoopCounter.ToString();
+            Stage2RepetitionCounter = (int)value;
+            Stage2RepetitionInfo.text = "Stage2 Repetition: " + Stage2RepetitionCounter.ToString();
         }
 
         public IEnumerator EyeMaskTest()
@@ -147,6 +155,7 @@ namespace ChaosIkaros.OVVA
         public void InitializeOVVATest()
         {
             SetEyeMask();
+            BisectionMethodRecorder = new List<Vector3> { };
             OVVAGenerator.StartRadius = 6f;
             OVVAGenerator.UpdateNonCentralArea(OVVAGenerator.StartRadius);
             _currentDistance = 0f;
@@ -202,7 +211,7 @@ namespace ChaosIkaros.OVVA
                 }
                 else
                 {
-                    if (_halfFOV != OVVAGenerator.HalfFOVStart && _repeatCounterStage2 < Stage2LoopCounter)
+                    if (_halfFOV != OVVAGenerator.HalfFOVStart && _repeatCounterStage2 < Stage2RepetitionCounter)
                     {
                         _repeatCounterStage2++;
                     }
@@ -211,8 +220,9 @@ namespace ChaosIkaros.OVVA
                         _repeatCounterStage2 = 0;
                         _halfFOV += OVVAGenerator.HalfFOVInc;
                     }
+
                     OVVAGenerator.UpdateCentralArea(_lastDistanceC, _halfFOV);
-                    if(_repeatCounterStage2 == 0 && _halfFOV > OVVAGenerator.HalfFOVStart + OVVAGenerator.HalfFOVInc)
+                    if (_repeatCounterStage2 == 0 && _halfFOV > OVVAGenerator.HalfFOVStart + OVVAGenerator.HalfFOVInc)
                         yield return StartCoroutine(InstructionManager.EndCheckForStage2());
                 }
             }
@@ -257,7 +267,8 @@ namespace ChaosIkaros.OVVA
             _currentPositions +=
                 OVVAUtility.Vector3ToString(OVVAGenerator.ActiveOptotypeList[_repeatCounter].transform.localPosition) +
                 ";";
-            if (OVVAInputManager.CanRecognizeCurrentOptotype(OVVAGenerator.ActiveOptotypeList[_repeatCounter].transform.GetChild(0).localRotation.eulerAngles.z))
+            if (OVVAInputManager.CanRecognizeCurrentOptotype(OVVAGenerator.ActiveOptotypeList[_repeatCounter].transform
+                    .GetChild(0).localRotation.eulerAngles.z))
             {
                 _subTaskScore++;
                 _currentAnswer += "1;";
@@ -287,6 +298,7 @@ namespace ChaosIkaros.OVVA
             float angle = 0;
             OVVAUtility.VisualAngleConversion(ref angle, 0.0008726646f, _lastDistanceC);
             LogMAR = OVVAUtility.DegreeToLogMAR(angle);
+            BisectionMethodRecorder.Add(new Vector3(_lastDistanceA, _lastDistanceB, _lastDistanceC));
             OVVARecorder.RecordData(LogMAR, _lastDistanceC, _lastDistanceA, _lastDistanceB, _halfFOV * 2, _timer,
                 _accuracy,
                 _progress, _currentPositions,
@@ -323,12 +335,13 @@ namespace ChaosIkaros.OVVA
 
         private void UpdateCentralVVATest()
         {
-            if (_lastDistanceC != (_lastDistanceA + _lastDistanceB) * 0.5f)
+            if (Stage1HasMistake)
             {
-                if (!Stage1HasMistake)
-                    _lastDistanceC = (_lastDistanceA + _lastDistanceB) * 0.5f;
-                OVVAGenerator.UpdateNonCentralArea(_lastDistanceC);
+                _lastDistanceA = BisectionMethodRecorder[^1].x;
+                _lastDistanceB = BisectionMethodRecorder[^1].y;
             }
+            _lastDistanceC = (_lastDistanceA + _lastDistanceB) * 0.5f;
+            OVVAGenerator.UpdateNonCentralArea(_lastDistanceC);
         }
 
         public void SaveData()

@@ -55,7 +55,7 @@ namespace ChaosIkaros.OVVA
                                           + "\r\nRenderResolution: " + TargetResolution
                                           + "\r\nEye: " + TargetEye;
             if (OVVATestController.Instance != null)
-                DatasetInfo.text += "\r\nStage2 Loop: " + OVVATestController.Instance.Stage2LoopCounter;
+                DatasetInfo.text += "\r\nStage2 Repetition: " + OVVATestController.Instance.Stage2RepetitionCounter;
         }
 
         public void HeapMapPreprocessing(string targetDevice, string targetResolution, string targetEye,
