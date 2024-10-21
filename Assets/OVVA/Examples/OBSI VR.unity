@@ -1577,7 +1577,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eec88d3e31038d44294618c2abd0b635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartRadius: 0.75
+  OptotypeInterval: 3
+  StartRadius: 0.2
   OptotypePrefab: {fileID: 5585832677126704306, guid: ac0dc4c0fa323014a98b80d9c79dc768, type: 3}
   CameraTransform: {fileID: 500494244}
 --- !u!1 &2028528301

@@ -120,11 +120,11 @@ We welcome community contributions to this repository.
 @ARTICLE{10458404,
   author={Wang, Jialin and Shi, Rongkai and Li, Xiaodong and Wei, Yushi and Liang, Hai-Ning},
   journal={IEEE Transactions on Visualization and Computer Graphics}, 
-  title={Omnidirectional Virtual Visual Acuity: A User-centric Visual Clarity Metric for Virtual Reality Head-mounted Displays and Environments}, 
+  title={Omnidirectional Virtual Visual Acuity: A User-Centric Visual Clarity Metric for Virtual Reality Head-Mounted Displays and Environments}, 
   year={2024},
-  volume={},
-  number={},
-  pages={1-11},
+  volume={30},
+  number={5},
+  pages={2033-2043},
   keywords={Visualization;Measurement;Resists;Rendering (computer graphics);Optical imaging;Image resolution;Optical sensors;Virtual reality;Head-mounted displays;Measurements;Visual clarity;Passthrough;Render resolution;Frame rate},
   doi={10.1109/TVCG.2024.3372127}}
 ```

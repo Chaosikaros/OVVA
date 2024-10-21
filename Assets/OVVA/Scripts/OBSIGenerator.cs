@@ -7,7 +7,8 @@ namespace ChaosIkaros.OVVA
 {
     public class OBSIGenerator : MonoBehaviour
     {
-        public const int OptotypeInterval = 1;
+        [Range(1, 18)]
+        public int OptotypeInterval = 1;
         public float StartRadius = 0.75f;
         public GameObject OptotypePrefab;
         public Transform CameraTransform;
